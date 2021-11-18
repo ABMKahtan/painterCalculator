@@ -9,20 +9,28 @@ public class PainterCalc {
             int painterInput;
             int wallCoverage[];
             int numberOfWalls;
-            int wallLength;
-            int wallHeight;
             int coveragePerHalfCan = 52;   // How much Sqft is covered by a 500mL Can of paint
             int mlPerCan;
             int numOfCans;
             int coveragePerCan;
+            int i = 0;
 
             //System.out.println("What is the Sqft measurement of coverage you need?: ");
             //painterInput = scan.nextInt();       // Value to be replaced by scanner
             System.out.println("How many walls would you like to paint?:");
             numberOfWalls = scan.nextInt();
+            while (i < numberOfWalls) {
 
-            System.out.println("what is the height of the wall?:");
-            wallHeight = scan.nextInt();
+                int wallLength;
+                int wallHeight;
+                
+
+                System.out.println("what is the height of the wall?:");
+                wallHeight = scan.nextInt();
+                System.out.println("what is the length of the wall?:");
+                wallLength = scan.nextInt();
+
+            }
 
             System.out.println("How many ml is in per can you will be using?:");
             mlPerCan = scan.nextInt();
