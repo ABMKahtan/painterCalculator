@@ -7,7 +7,7 @@ public class PainterCalc {
 
         public static void main(String[] args){
             Scanner scan = new Scanner(System.in);
-            int wallCoverage = 0; //This is an array of all the wall sizes in Sq-ft
+            int totalWallCoverage = 0;
             int coveragePerHalfL = 52;   // How much Sq-ft is covered by a 500mL Can of paint
             int numberOfWalls;
             int mlPerCan;
@@ -22,15 +22,14 @@ public class PainterCalc {
             userIn = scan.nextLine();
 
             switch (userIn) {
-                case "y":
-
+                case "y" -> {
                     System.out.println("How many walls would you like to paint?:");
                     numberOfWalls = scan.nextInt();
-
                     System.out.println("How many ml is in per can you will be using?:");
                     mlPerCan = scan.nextInt();
+                    int[] wallCoverageArr = new int[numberOfWalls];
 
-                    /* Same code but in a for loop:
+                    /* Same code as bellow but in a for loop:
                        for(i = 0; i < numberOfWalls; i++){
                         int wallLength = 0;
                         int wallHeight = 0;
@@ -47,44 +46,41 @@ public class PainterCalc {
 
                     while (i < numberOfWalls) {
 
-                        int wallLength = 0;
-                        int wallHeight = 0;
-                        i++;
+                        int wallLength;
+                        int wallHeight;
 
-                        System.out.println("what is the height in ft of wall number " + i + " ?:");
+                        System.out.println("what is the height in ft of wall number " + (i + 1) + " ?:");
                         wallHeight = scan.nextInt();
 
-                        System.out.println("what is the length in ft of wall number " + i + "?:");
+                        System.out.println("what is the length in ft of wall number " + (i + 1) + "?:");
                         wallLength = scan.nextInt();
 
-                        wallCoverage = wallCoverage + (wallHeight*wallLength); //Adds the Sq-ft per wall onto the current total.
+                        wallCoverageArr[i] = wallHeight * wallLength;
+                        totalWallCoverage = totalWallCoverage + (wallHeight * wallLength); //Adds the Sq-ft per wall onto the current total.
+                        i++;
+
                     }
+                    System.out.println("This is the breakdown of how many Sq-ft each wall is: " + Arrays.toString(wallCoverageArr));
 
-                    coveragePerCan = (int)(coveragePerHalfL*(mlPerCan/500));
-                    numOfCans = wallCoverage / coveragePerCan;
-
-                    System.out.println("The total Sq-ft you need to paint is: " + wallCoverage);
-
-                    if(wallCoverage%coveragePerCan > 0){
+                    coveragePerCan = (coveragePerHalfL * (mlPerCan / 500));
+                    numOfCans = totalWallCoverage / coveragePerCan;
+                    System.out.println("The total Sq-ft you need to paint is: " + totalWallCoverage);
+                    if (totalWallCoverage % coveragePerCan > 0) {
                         numOfCans++;
                         System.out.println("The number of chosen size cans the painter needs for this coverage is: " + numOfCans + ", and you will have leftover paint");
-                    }
-                    else {
+                    } else {
                         System.out.println("The number of chosen size cans the painter needs for this coverage is: " + numOfCans);
                     }
-
                     System.out.println("Thank you for using my paint calculator! :D");
-
-                    break;
-                case "n":
+                }
+                case "n" -> {
                     System.out.println("We will now stop and exit the program!");
                     System.out.println("Thank you for not using my paint calculator :(");
-                    break;
-                default:
+                }
+                default -> {
                     System.out.println("Sorry Wrong Answer!.....");
                     System.out.println("Try Again!..............");
-                    break;
-
+                }
             }
 
        }
