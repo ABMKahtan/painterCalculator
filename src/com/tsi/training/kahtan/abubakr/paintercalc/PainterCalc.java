@@ -30,6 +30,21 @@ public class PainterCalc {
                     System.out.println("How many ml is in per can you will be using?:");
                     mlPerCan = scan.nextInt();
 
+                    /* Same code but in a for loop:
+                       for(i = 0; i < numberOfWalls; i++){
+                        int wallLength = 0;
+                        int wallHeight = 0;
+
+                        System.out.println("what is the height in ft of wall number " + i + " ?:");
+                        wallHeight = scan.nextInt();
+
+                        System.out.println("what is the length in ft of wall number " + i + "?:");
+                        wallLength = scan.nextInt();
+
+                        wallCoverage = wallCoverage + (wallHeight*wallLength); //Adds the Sq-ft per wall onto the current total.
+                       }
+                    */
+
                     while (i < numberOfWalls) {
 
                         int wallLength = 0;
@@ -58,10 +73,18 @@ public class PainterCalc {
                         System.out.println("The number of chosen size cans the painter needs for this coverage is: " + numOfCans);
                     }
 
+                    System.out.println("Thank you for using my paint calculator! :D");
+
                     break;
                 case "n":
-                    System.out.println("We will now stop the program!");
+                    System.out.println("We will now stop and exit the program!");
+                    System.out.println("Thank you for not using my paint calculator :(");
                     break;
+                default:
+                    System.out.println("Sorry Wrong Answer!.....");
+                    System.out.println("Try Again!..............");
+                    break;
+
             }
 
        }
